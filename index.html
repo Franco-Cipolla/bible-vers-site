@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" class="transition duration-300">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Bible Verses</title>
+    <link rel="icon" href="img/Favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/src/output.css" />
+  </head>
+  <body class="transition duration-300">
+    <!-- Root Container -->
+    <div
+      class="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300"
+    >
+      <!-- Header -->
+      <header
+        class="w-full shadow-md bg-white dark:bg-gray-800 sticky top-0 z-50"
+      >
+        <div
+          class="max-w-7xl mx-auto flex justify-between items-center px-4 py-4"
+        >
+          <div class="flex items-center space-x-4">
+            <img src="img/Favicon.png" alt="LOGO" class="h-10 w-10" />
+            <div
+              class="text-2xl font-bold text-indigo-600 dark:text-indigo-400"
+            >
+              Bible Verse App
+            </div>
+          </div>
+          <nav class="space-x-4 hidden md:flex">
+            <a
+              href="#"
+              class="hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+              >Home</a
+            >
+            <a
+              href="#verse"
+              class="hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+              >Verse</a
+            >
+            <a
+              href="#about"
+              class="hover:text-indigo-600 dark:hover:text-indigo-400 transition"
+              >About</a
+            >
+          </nav>
+          <button
+            id="darkModeToggle"
+            class="ml-4 p-2 rounded-full cursor-pointer bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition"
+            aria-label="Dark Mode umschalten"
+          >
+            <span id="darkModeIcon">🌙</span>
+          </button>
+          <!-- Dark Mode Toggle (Optional Extension) -->
+        </div>
+      </header>
+
+      <!-- Hero Section -->
+      <section
+        class="flex flex-col items-center justify-center text-center px-6 py-20 md:py-32 lg:py-40 bg-gradient-to-b from-indigo-100 to-white dark:from-gray-800 dark:to-gray-900"
+      >
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight max-w-2xl">
+          Finde
+          <span class="text-indigo-600 dark:text-indigo-400">Inspiration</span>
+          in einem zufälligen Bibelvers
+        </h1>
+        <p class="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-xl">
+          Klicke unten auf den Button und entdecke einen Bibelvers, der dich
+          heute begleiten soll.
+        </p>
+        <a href="#verse">
+          <button
+            id="randomVerseButton"
+          class="mt-8 px-8 cursor-pointer py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-lg shadow-md transition-all duration-300"
+          >
+            Vers anzeigen
+          </button>
+        </a>
+      </section>
+      <section id="verses"></section>
+    </div>
+
+    <script src="index.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  </body>
+</html>
