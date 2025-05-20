@@ -50,7 +50,7 @@ const getRandomBibleVerse = async () => {
     newImg.alt = "Img";
     newP.textContent = verse;
     newH2.textContent = `Chapter ${chapter} of book ${book}`;
-    newDiv.classList.add("flex", "flex-col", "gap-2", "rounded-lg", "shadow-2xl", "bg-white", "overflow-hidden","dark:bg-gray-800", "md:max-w-3xl");
+    newDiv.classList.add("flex", "flex-col", "gap-2", "rounded-lg", "shadow-2xl", "bg-white", "overflow-hidden","dark:bg-gray-800", "md:max-w-3xl", "h-full");
     newImg.classList.add("object-cover","w-full")
     textGroup.classList.add("px-5", "py-2.5", "flex", "flex-col", "gap-2");
     newH2.classList.add("text-xl","font-bold");
@@ -58,7 +58,7 @@ const getRandomBibleVerse = async () => {
     textGroup.append(newH2,newP);
     newDiv.append(newImg,textGroup);
     container.append(newDiv)
-  
+
 
 
 
