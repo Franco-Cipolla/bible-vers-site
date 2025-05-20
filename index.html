@@ -11,7 +11,7 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body class="transition duration-300">
+  <body class="transition duration-300 scroll-smooth">
 
     <div
       class="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300"
@@ -64,7 +64,7 @@
         </div>
       </header>
       <div
-        class="absolute w-[75%] text-white bg-indigo-700 md:hidden max-h-full h-full right-0 flex hidden"
+        class="fixed w-[75%] text-white bg-indigo-700 md:hidden max-h-full h-full right-0 flex hidden"
         id="mobileNav"
       >
         <ul class="flex flex-col gap-20 mt-20 ml-20">
@@ -104,10 +104,11 @@
             Show me a random Bible Verse
           </button>
         </a>
+        <button id="reset" class="border-1 border-gray-950 dark:border-gray-400  py-1.5 px-6 mt-3 rounded-lg font-semibold shadow-md cursor-pointer transform duration-200 hover:-translate-y-1 hover:bg-gray-100 dark:hover:bg-gray-800">Reset</button>
       </section>
       <section
         id="verses"
-        class="w-full p-23 flex flex-col items-center justify-center gap-10"
+        class="w-full p-15 flex flex-col items-center justify-center gap-10 lg:grid lg:grid-cols-3"
       >
         <!-- <div class="flex flex-col gap-2 rounded-lg shadow-2xl bg-white dark:bg-gray-800 overflow-hidden">
           <img src="img/BG-Card.jpg" alt="Img" class="object-cover w-full " />
