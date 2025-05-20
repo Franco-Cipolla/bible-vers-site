@@ -8,7 +8,21 @@ const apiKey = "780c1be1b02c848df4783a69b5329593";
 const container = document.querySelector("#verses")
 const resetBtn = document.querySelector("#reset")
 
- let isOpen = false;
+let isOpen = false;
+const imgSrces = ["img/BG-Card.jpg","img/BG-Card-2.jpg","img/BG-Card-3.jpg","img/BG-Card-4.jpg"];
+
+const randomImg = () => {
+  const randNum = Math.floor(Math.random() * 10) + 1;
+  if (randNum <= 2) {
+    return imgSrces[0];
+  } else if (randNum <= 5) {
+    return imgSrces[1];
+  } else if (randNum <= 7) {
+    return imgSrces[2];
+  } else {
+    return imgSrces[3];
+  }
+}
 
 
 menuBtn.addEventListener("click", () => {
@@ -21,7 +35,6 @@ menuBtn.addEventListener("click", () => {
   mobileNav.classList.remove("animate-slide-in-right");
   mobileNav.classList.add("animate-slide-out-right");
 
-  // Verzögertes Ausblenden nach Animation
   setTimeout(() => {
     mobileNav.classList.add("hidden");
   }, 400);
@@ -46,12 +59,12 @@ const getRandomBibleVerse = async () => {
     const newImg = document.createElement("img");
     const newP = document.createElement("p");
     const newH2 = document.createElement("h2");
-    newImg.src = "img/BG-Card.jpg";
+    newImg.src = randomImg();
     newImg.alt = "Img";
     newP.textContent = verse;
     newH2.textContent = `Chapter ${chapter} of book ${book}`;
     newDiv.classList.add("flex", "flex-col", "gap-2", "rounded-lg", "shadow-2xl", "bg-white", "overflow-hidden","dark:bg-gray-800", "md:max-w-3xl", "h-full");
-    newImg.classList.add("object-cover","w-full")
+    newImg.classList.add("object-cover","w-full","max-h-52")
     textGroup.classList.add("px-5", "py-2.5", "flex", "flex-col", "gap-2");
     newH2.classList.add("text-xl","font-bold");
     newP.classList.add("font-semibold");

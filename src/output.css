@@ -282,6 +282,15 @@
   .h-screen {
     height: 100vh;
   }
+  .max-h-36 {
+    max-height: calc(var(--spacing) * 36);
+  }
+  .max-h-52 {
+    max-height: calc(var(--spacing) * 52);
+  }
+  .max-h-\[50\%\] {
+    max-height: 50%;
+  }
   .max-h-full {
     max-height: 100%;
   }
