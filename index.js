@@ -1,27 +1,70 @@
 
 const versContainer = document.getElementById('verses');
 const versButton = document.getElementById('randomVerseButton');
-
-
+const menuBtn = document.querySelector("#menuBtn");
+const mobileNav = document.querySelector("#mobileNav")
+const menuIcon = document.querySelector("#menuIcon")
 const apiKey = "780c1be1b02c848df4783a69b5329593";
+const container = document.querySelector("#verses")
 
+ let isOpen = false;
+
+
+menuBtn.addEventListener("click", () => {
+  isOpen = !isOpen;
+  if (isOpen) {
+  mobileNav.classList.remove("hidden", "animate-slide-out-right");
+  mobileNav.classList.add("animate-slide-in-right");
+  menuIcon.classList.replace("fa-bars", "fa-xmark");
+} else {
+  mobileNav.classList.remove("animate-slide-in-right");
+  mobileNav.classList.add("animate-slide-out-right");
+
+  // Verzögertes Ausblenden nach Animation
+  setTimeout(() => {
+    mobileNav.classList.add("hidden");
+  }, 400);
+
+  menuIcon.classList.replace("fa-xmark", "fa-bars");
+}
+
+})
 const getRandomBibleVerse = async () => {
   try {
     const response = await axios.get('https://bolls.life/get-random-verse/YLT/', {
 
 
     });
+    const verse = response.data.text ;
+    const book = response.data.book ;
+    const chapter = response.data.chapter
     console.log(response)
-    console.log(response.data.text, response.data.book,response.data.chapter)
+    const newDiv = document.createElement("div");
+    const textGroup = document.createElement("div")
+    const newImg = document.createElement("img");
+    const newP = document.createElement("p");
+    const newH2 = document.createElement("h2");
+    newImg.src = "img/BG-Card.jpg";
+    newImg.alt = "Img";
+    newP.textContent = verse;
+    newH2.textContent = `Chapter ${chapter} of book ${book}`;
+    newDiv.classList.add("flex", "flex-col", "gap-2", "rounded-lg", "shadow-2xl", "bg-white", "overflow-hidden","dark:bg-gray-800", "md:max-w-3xl");
+    newImg.classList.add("object-cover","w-full")
+    textGroup.classList.add("px-5", "py-2.5", "flex", "flex-col", "gap-2");
+    newH2.classList.add("text-xl","font-bold");
+    newP.classList.add("font-semibold");
+    textGroup.append(newH2,newP);
+    newDiv.append(newImg,textGroup);
+    container.append(newDiv)
+
   } catch (error) {
     console.error('Fehler beim Abrufen des Verses:', error);
   }
 };
 
 
-
 versButton.addEventListener('click', () => {
-    getRandomBibleVerse()
+    getRandomBibleVerse();
 
 })
 
@@ -30,7 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const icon = document.getElementById('darkModeIcon');
       const html = document.documentElement;
 
-      // Lade Darkmode-Status aus localStorage
       if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         html.classList.add('dark');
         icon.textContent = '☀️';
