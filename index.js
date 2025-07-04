@@ -4,7 +4,6 @@ const versButton = document.getElementById('randomVerseButton');
 const menuBtn = document.querySelector("#menuBtn");
 const mobileNav = document.querySelector("#mobileNav")
 const menuIcon = document.querySelector("#menuIcon")
-const apiKey = "780c1be1b02c848df4783a69b5329593";
 const container = document.querySelector("#verses")
 const resetBtn = document.querySelector("#reset")
 
@@ -71,10 +70,6 @@ const getRandomBibleVerse = async () => {
     textGroup.append(newH2,newP);
     newDiv.append(newImg,textGroup);
     container.append(newDiv)
-
-
-
-
   } catch (error) {
     console.error('Fehler beim Abrufen des Verses:', error);
   }
@@ -104,11 +99,11 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-
-resetBtn.addEventListener("click", () => {
-    reset();
-})
 const reset = () => {
   container.innerHTML = "";
 
 }
+resetBtn.addEventListener("click", () => {
+    reset();
+})
+
